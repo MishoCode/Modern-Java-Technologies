@@ -1,49 +1,6 @@
 package problem3;
 
 public class PathUtils {
-    /*public static String[] simplifyPath(String[] tokens) {
-        int k = 0;
-        String[] directories = new String[tokens.length];
-        for (String s : tokens) {
-            if (!s.equals(".")) {
-                directories[k] = s;
-                k++;
-            }
-
-        }
-
-        return directories;
-    }
-
-    public static String getCanonicalPath(String path) {
-        StringBuilder canonicalPath = new StringBuilder("/");
-        String[] tokens = path.split("/+");
-        String[] directories = simplifyPath(tokens);
-
-        int lastDirectoryLen = 0, i = 1;
-        while (i < directories.length && directories[i] != null) {
-            if (directories[i].equals("..")) { // go to the previous directory
-                if (lastDirectoryLen > 0) { // remove the previous directory name
-                    canonicalPath.delete(canonicalPath.length() - lastDirectoryLen - 1, canonicalPath.length());
-                    lastDirectoryLen = i > 2 ? directories[i - 2].length() : 0;
-                }
-            } else if (!directories[i].equals(".")) { //directory name found
-                canonicalPath.append(directories[i]); // add the new directory name
-                if (i != directories.length - 1) {
-                    canonicalPath.append("/");
-                }
-                lastDirectoryLen = directories[i].length();
-            }
-            i++;
-        }
-
-        if (canonicalPath.length() > 1 && canonicalPath.charAt(canonicalPath.length() - 1) == '/') {
-            canonicalPath.delete(canonicalPath.length() - 1, canonicalPath.length());
-        }
-
-        return canonicalPath.toString();
-    }*/
-
     public static String getCanonicalPath(String path) {
         StringBuilder canonicalPath = new StringBuilder();
         String[] directories = path.split("/+");
