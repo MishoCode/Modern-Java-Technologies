@@ -29,12 +29,12 @@ public class RentalService implements RentalServiceAPI {
 
     @Override
     public double rentUntil(Vehicle vehicle, LocalDateTime until) {
-        if (!vehicleExists(vehicle) || isBooked(vehicle)) {
+        if (!vehicleExists(vehicle) || isBooked(vehicle) || until.isBefore(LocalDateTime.now())) {
             return -1.0;
         }
 
         vehicle.setEndOfReservationPeriod(until);
-        long minutes = Duration.between(LocalDateTime.now(), until).toMinutes();
+        long minutes = Duration.between(LocalDateTime.now().withNano(0), until.withNano(0)).toMinutes();
         return minutes * vehicle.getPricePerMinute();
     }
 

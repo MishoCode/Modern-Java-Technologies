@@ -30,16 +30,18 @@ public class Main {
 
         RentalServiceAPI rentalService = new RentalService(vehicles);
 
+        //LocalDateTime time1 = LocalDateTime.of(2021,10,30,9,5);
         System.out.println("Rent until tests:");
-        double priceForCar = rentalService.rentUntil(car1, LocalDateTime.now().plusMinutes(5));
+
+        double priceForCar = rentalService.rentUntil(car1, LocalDateTime.now().plusMinutes(81));
         double priceForBicycle = rentalService.rentUntil(bicycle1, LocalDateTime.now().plusMinutes(20));
         double priceForBicycle2 = rentalService.rentUntil(bicycle1, LocalDateTime.now().plusMinutes(5));
         double priceForBicycle3 = rentalService.rentUntil(bicycle3, LocalDateTime.now().plusMinutes(25));
 
-        System.out.println(priceForCar);
-        System.out.println(priceForBicycle);
-        System.out.println(priceForBicycle2);
-        System.out.println(priceForBicycle3);
+        System.out.printf("%.2f\n", priceForCar);
+        System.out.printf("%.2f\n", priceForBicycle);
+        System.out.printf("%.2f\n", priceForBicycle2);
+        System.out.printf("%.2f\n", priceForBicycle3);
 
         Location currentLocation = new Location(0, 0);
 
