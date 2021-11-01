@@ -16,8 +16,8 @@ public interface Library {
     /**
      * Removes the playlist with the given name from the library.
      *
-     * @throws IllegalArgumentException if the given playlist name matches the default "Liked Content" playlist name.
-     * @throws EmptyLibraryException if the library is empty.
+     * @throws IllegalArgumentException  if the given playlist name matches the default "Liked Content" playlist name.
+     * @throws EmptyLibraryException     if the library is empty.
      * @throws PlaylistNotFoundException if the playlist with the given name is not present in the library.
      */
     void remove(String name) throws EmptyLibraryException, PlaylistNotFoundException;

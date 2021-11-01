@@ -4,8 +4,9 @@ import bg.sofia.uni.fmi.mjt.spotify.exceptions.EmptyLibraryException;
 import bg.sofia.uni.fmi.mjt.spotify.exceptions.LibraryCapacityExceededException;
 import bg.sofia.uni.fmi.mjt.spotify.exceptions.PlaylistNotFoundException;
 import bg.sofia.uni.fmi.mjt.spotify.playlist.Playlist;
+import bg.sofia.uni.fmi.mjt.spotify.playlist.UserPlaylist;
 
-public class UserLibrary implements Library{
+public class UserLibrary implements Library {
     public static final int LIBRARY_CAPACITY = 21;
     public static final String FULL_LIBRARY_MSG = "The library is full.";
     public static final String CANNOT_REMOVE_LIKED_LIST = "This playlist name matches the liked playlist name.";
@@ -16,9 +17,9 @@ public class UserLibrary implements Library{
     private int size;
     //private Playlist likedPlaylist;
 
-    private int findPlaylist(String name){
-        for(int i=0;i< userPlaylists.length;i++){
-            if(userPlaylists[i].getName().equals(name)){
+    private int findPlaylist(String name) {
+        for (int i = 0; i < size; i++) {
+            if (userPlaylists[i].getName().equals(name)) {
                 return i;
             }
         }
@@ -29,38 +30,41 @@ public class UserLibrary implements Library{
     public UserLibrary() {
         size = 1;
         userPlaylists = new Playlist[LIBRARY_CAPACITY];
+        userPlaylists[0] = new UserPlaylist("Liked Content");
     }
 
     @Override
     public void add(Playlist playlist) throws LibraryCapacityExceededException {
-        if(size == LIBRARY_CAPACITY){
+        if (size == LIBRARY_CAPACITY) {
             throw new LibraryCapacityExceededException(FULL_LIBRARY_MSG);
         }
         userPlaylists[size] = playlist;
+        size++;
     }
 
     @Override
     public void remove(String name) throws EmptyLibraryException, PlaylistNotFoundException {
-        if(name.equals(userPlaylists[0].getName())){
+        if (name.equals(userPlaylists[0].getName())) {
             throw new IllegalArgumentException(CANNOT_REMOVE_LIKED_LIST);
         }
 
-        if(size <= 1){
+        if (size <= 1) {
             throw new EmptyLibraryException(EMPTY_LIBRARY_MSG);
         }
 
         int playlistToRemoveIndex = findPlaylist(name);
-        if(playlistToRemoveIndex == -1){
+        if (playlistToRemoveIndex == -1) {
             throw new PlaylistNotFoundException(PLAYLIST_NOT_FOUND_MSG);
         }
 
-        Playlist[] newPlaylists = new Playlist[userPlaylists.length-1];
-        for(int i=0;i< size;i++){
-            if(i != playlistToRemoveIndex) {
+        Playlist[] newPlaylists = new Playlist[userPlaylists.length - 1];
+        for (int i = 0; i < size; i++) {
+            if (i != playlistToRemoveIndex) {
                 newPlaylists[i] = userPlaylists[i];
             }
         }
 
+        size--;
         userPlaylists = newPlaylists;
     }
 

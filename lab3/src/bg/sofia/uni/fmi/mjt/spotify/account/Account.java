@@ -25,9 +25,9 @@ public abstract class Account {
     public abstract AccountType getType();
 
     public void listen(Playable playable) {
-        totalListenTime+= playable.getDuration();
+        totalListenTime += playable.getDuration();
         listenedCount++;
-        playable.play();
+        System.out.println(playable.play());
     }
 
     public Library getLibrary() {
