@@ -1,7 +1,7 @@
 package bg.sofia.uni.fmi.mjt.spotify.playable;
 
 public sealed abstract class AbstractPlayableContent
-        implements Playable permits Audio, Video {
+    implements Playable permits Audio, Video {
     protected static final String MESSAGE = "Currently playing %s: %s";
 
     private String title;

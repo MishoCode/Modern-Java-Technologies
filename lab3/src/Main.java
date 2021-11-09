@@ -29,8 +29,8 @@ public class Main {
         Playable playable4 = new Video("tile4", "artist4", 2010, 2.5);
         Playable playable5 = new Video("title5", "artist5", 2008, 1.5);
 
-        Account[] accounts = new Account[]{account1, account2, account3};
-        Playable[] playableContent = new Playable[]{playable1, playable2, playable3, playable4, playable5};
+        Account[] accounts = new Account[] {account1, account2, account3};
+        Playable[] playableContent = new Playable[] {playable1, playable2, playable3, playable4, playable5};
         StreamingService spotify = new Spotify(accounts, playableContent);
 
         try {

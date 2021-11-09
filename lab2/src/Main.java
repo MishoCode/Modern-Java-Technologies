@@ -25,8 +25,17 @@ public class Main {
         Vehicle scooter3 = new Scooter("scooter-3", new Location(25, 2.5));
         Vehicle scooter4 = new Scooter("scooter-4", new Location(12, 12));
 
-        Vehicle[] vehicles = new Vehicle[]{
-                car1, car2, car3, car4, bicycle1, bicycle2, scooter1, scooter2, scooter3, scooter4};
+        Vehicle[] vehicles = new Vehicle[] {
+            car1,
+            car2,
+            car3,
+            car4,
+            bicycle1,
+            bicycle2,
+            scooter1,
+            scooter2,
+            scooter3,
+            scooter4};
 
         RentalServiceAPI rentalService = new RentalService(vehicles);
 
@@ -47,25 +56,25 @@ public class Main {
 
         System.out.println("Nearest car tests:");
         Vehicle nearestCar =
-                rentalService.findNearestAvailableVehicleInRadius("CAR", currentLocation, 20.5);
-        System.out.println(nearestCar.equals(car1));//false, it is already booked
-        System.out.println(nearestCar.equals(car2));//false
-        System.out.println(nearestCar.equals(car3));//false
-        System.out.println(nearestCar.equals(car4));//true
+            rentalService.findNearestAvailableVehicleInRadius("CAR", currentLocation, 20.5);
+        System.out.println(nearestCar.equals(car1)); //false, it is already booked
+        System.out.println(nearestCar.equals(car2)); //false
+        System.out.println(nearestCar.equals(car3)); //false
+        System.out.println(nearestCar.equals(car4)); //true
 
         System.out.println("Nearest scooter tests:");
         Vehicle nearestScooter1 =
-                rentalService.findNearestAvailableVehicleInRadius("SCOOTER", currentLocation, 1.5);
-        System.out.println(nearestScooter1 == null);//true
+            rentalService.findNearestAvailableVehicleInRadius("SCOOTER", currentLocation, 1.5);
+        System.out.println(nearestScooter1 == null); //true
         Vehicle nearestScooter2 =
-                rentalService.findNearestAvailableVehicleInRadius("SCOOTER", currentLocation, 100.0);
-        System.out.println(nearestScooter2.equals(scooter1));//true
-        System.out.println(nearestScooter2.equals(scooter3));//false
+            rentalService.findNearestAvailableVehicleInRadius("SCOOTER", currentLocation, 100.0);
+        System.out.println(nearestScooter2.equals(scooter1)); //true
+        System.out.println(nearestScooter2.equals(scooter3)); //false
 
         System.out.println("Nearest bicycle tests:");
         Vehicle nearestBicycle =
-                rentalService.findNearestAvailableVehicleInRadius("BICYCLE", currentLocation, 10.0);
-        System.out.println(nearestBicycle.equals(bicycle2));//true
-        System.out.println(nearestBicycle.equals(bicycle4));//false
+            rentalService.findNearestAvailableVehicleInRadius("BICYCLE", currentLocation, 10.0);
+        System.out.println(nearestBicycle.equals(bicycle2)); //true
+        System.out.println(nearestBicycle.equals(bicycle4)); //false
     }
 }

@@ -65,7 +65,7 @@ public class Spotify implements StreamingService {
 
     @Override
     public void like(Account account, String title)
-            throws AccountNotFoundException, PlayableNotFoundException, StreamingServiceException {
+        throws AccountNotFoundException, PlayableNotFoundException, StreamingServiceException {
         if (account == null || title == null || title.isEmpty()) {
             throw new IllegalArgumentException(NULL_ARGS_MSG);
         }
@@ -80,11 +80,18 @@ public class Spotify implements StreamingService {
         }
 
         Playlist likedPlaylist = account.getLibrary().getLiked();
-        try {
+        /*try {
             likedPlaylist.add(playable);
         } catch (PlaylistCapacityExceededException e) {
             e.printStackTrace();
             throw new StreamingServiceException(CONTENT_CANNOT_BE_ADDED_MSG);
+        }*/
+
+        try {
+            likedPlaylist.add(playable);
+        } catch (PlaylistCapacityExceededException e) {
+            e.printStackTrace();
+            throw new StreamingServiceException(CONTENT_CANNOT_BE_ADDED_MSG, e);
         }
     }
 

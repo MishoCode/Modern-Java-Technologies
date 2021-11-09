@@ -31,7 +31,7 @@ public interface StreamingService {
      * @throws StreamingServiceException if the content could not be added to the "Liked Content" default playlist.
      */
     void like(Account account, String title)
-            throws AccountNotFoundException, PlayableNotFoundException, StreamingServiceException;
+        throws AccountNotFoundException, PlayableNotFoundException, StreamingServiceException;
 
     /**
      * Returns the playable content with the given title.
