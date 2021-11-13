@@ -56,8 +56,8 @@ public interface StreamingService {
     /**
      * Returns the total revenue of the platform.
      * The platform makes money from each registered account:
-     * - for FREE accounts, the revenue is 0.10 for every ad that has been played.
-     * - for PREMIUM accounts, the revenue is a one-time subscription of 25.00.
+     * - for FREE accounts, the revenue is 0.10 for every ad that has been played
+     * - for PREMIUM accounts, the revenue is a one-time subscription of 25.00
      */
-    double getTotalMoneyEarned();
+    double getTotalPlatformRevenue();
 }

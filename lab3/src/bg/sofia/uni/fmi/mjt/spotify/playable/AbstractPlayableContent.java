@@ -1,13 +1,13 @@
 package bg.sofia.uni.fmi.mjt.spotify.playable;
 
 public sealed abstract class AbstractPlayableContent
-    implements Playable permits Audio, Video {
+    implements Playable permits Video, Audio {
     protected static final String MESSAGE = "Currently playing %s: %s";
 
-    private String title;
-    private String artist;
-    private int year;
-    private double duration;
+    private final String title;
+    private final String artist;
+    private final int year;
+    private final double duration;
     protected int totalPlays;
 
     public AbstractPlayableContent(String title, String artist, int year, double duration) {

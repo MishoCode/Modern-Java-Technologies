@@ -4,8 +4,8 @@ import bg.sofia.uni.fmi.mjt.spotify.library.Library;
 import bg.sofia.uni.fmi.mjt.spotify.playable.Playable;
 
 public abstract class Account {
-    private String email;
-    private Library library;
+    private final String email;
+    private final Library library;
     protected double totalListenTime;
     protected int listenedCount;
 
@@ -27,7 +27,7 @@ public abstract class Account {
     public void listen(Playable playable) {
         totalListenTime += playable.getDuration();
         listenedCount++;
-        System.out.println(playable.play());
+        playable.play();
     }
 
     public Library getLibrary() {

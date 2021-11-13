@@ -15,7 +15,6 @@ public class UserLibrary implements Library {
 
     private Playlist[] userPlaylists;
     private int size;
-    //private Playlist likedPlaylist;
 
     private int findPlaylist(String name) {
         for (int i = 0; i < size; i++) {
