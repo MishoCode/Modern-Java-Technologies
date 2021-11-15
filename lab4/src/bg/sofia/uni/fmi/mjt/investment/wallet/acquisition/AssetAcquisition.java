@@ -5,9 +5,9 @@ import bg.sofia.uni.fmi.mjt.investment.wallet.asset.Asset;
 import java.time.LocalDateTime;
 
 public class AssetAcquisition implements Acquisition {
-    private Asset asset;
-    private double price;
-    private int quantity;
+    private final Asset asset;
+    private final double price;
+    private final int quantity;
     LocalDateTime timestamp;
 
     public AssetAcquisition(Asset asset, double price, int quantity, LocalDateTime timestamp) {

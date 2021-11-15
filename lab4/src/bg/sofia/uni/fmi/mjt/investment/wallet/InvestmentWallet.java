@@ -8,7 +8,6 @@ import bg.sofia.uni.fmi.mjt.investment.wallet.exception.OfferPriceException;
 import bg.sofia.uni.fmi.mjt.investment.wallet.exception.UnknownAssetException;
 import bg.sofia.uni.fmi.mjt.investment.wallet.exception.WalletException;
 import bg.sofia.uni.fmi.mjt.investment.wallet.quote.QuoteService;
-import bg.sofia.uni.fmi.mjt.investment.wallet.quote.QuoteServiceImpl;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -25,29 +24,29 @@ public class InvestmentWallet implements Wallet {
     private double money;
     private final QuoteService quoteService;
     private final Map<Asset, Integer> assets;
-    private List<Acquisition> acquisitions;
+    private final List<Acquisition> acquisitions;
 
-    private void addNewAsset(Asset asset) {
+    public InvestmentWallet(QuoteService quoteService) {
+        this.quoteService = quoteService;
+        assets = new HashMap<>();
+        acquisitions = new ArrayList<>();
+        money = 0.0;
+    }
+
+    private void addNewAsset(Asset asset, int quantity) {
         if (!assets.containsKey(asset)) {
             assets.put(asset, 0);
         }
 
-        assets.put(asset, assets.get(asset) + 1);
+        assets.put(asset, assets.get(asset) + quantity);
     }
 
-    private void removeAsset(Asset asset) {
-        assets.put(asset, assets.get(asset) - 1);
+    private void removeAsset(Asset asset, int quantity) {
+        assets.put(asset, assets.get(asset) - quantity);
 
         if (assets.get(asset) == 0) {
             assets.remove(asset);
         }
-    }
-
-    public InvestmentWallet() {
-        money = 0;
-        quoteService = new QuoteServiceImpl();
-        assets = new HashMap<>();
-        acquisitions = new ArrayList<>();
     }
 
     @Override
@@ -71,7 +70,7 @@ public class InvestmentWallet implements Wallet {
         }
 
         money -= cash;
-        return cash;
+        return money;
     }
 
     @Override
@@ -94,10 +93,11 @@ public class InvestmentWallet implements Wallet {
             throw new InsufficientResourcesException(INSUFFICIENT_RESOURCES_MSG);
         }
 
-        money -= moneyForTransaction;
-        acquisitions.add(new AssetAcquisition(asset, askPrice, quantity, LocalDateTime.now()));
-        addNewAsset(asset);
-        return new AssetAcquisition(asset, askPrice, quantity, LocalDateTime.now());
+        withdraw(moneyForTransaction);
+        Acquisition newAcquisition = new AssetAcquisition(asset, askPrice, quantity, LocalDateTime.now());
+        acquisitions.add(newAcquisition);
+        addNewAsset(asset, quantity);
+        return newAcquisition;
     }
 
     @Override
@@ -115,14 +115,18 @@ public class InvestmentWallet implements Wallet {
             throw new OfferPriceException(BID_PRICE_IS_TOO_SMALL_MSG);
         }
 
-        int quantityInTheWallet = assets.getOrDefault(asset, 0);
+        int quantityInTheWallet = 0;
+        if (assets.containsKey(asset)) {
+            quantityInTheWallet = assets.get(asset);
+            removeAsset(asset, quantity);
+        }
+
         if (quantityInTheWallet < quantity) {
             throw new InsufficientResourcesException(INSUFFICIENT_RESOURCES_MSG);
         }
 
-        double earnedMoney = quantityInTheWallet * bidPrice;
+        double earnedMoney = quantity * bidPrice;
         money += earnedMoney;
-        removeAsset(asset);
         return earnedMoney;
     }
 
