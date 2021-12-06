@@ -3,6 +3,7 @@ package bg.sofia.uni.fmi.mjt.cache;
 import bg.sofia.uni.fmi.mjt.cache.exception.ItemNotFound;
 import bg.sofia.uni.fmi.mjt.cache.storage.Storage;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -11,9 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Collection;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertIterableEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -149,6 +148,23 @@ public class LeastFrequentlyUsedCacheTest {
         List<String> expected = List.of("value1", "value2", "value3");
 
         assertIterableEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetValuesReturnsUnmodifiableCollectionThrowsException() {
+        cache.put("key1", "value1");
+        cache.put("key2", "value2");
+        cache.put("key3", "value3");
+
+        Collection<String> result = cache.values();
+
+        try {
+            result.add("value");
+        } catch(UnsupportedOperationException e){
+            return;
+        }
+
+        fail("getValues does not return unmodifiable collection");
     }
 
 }

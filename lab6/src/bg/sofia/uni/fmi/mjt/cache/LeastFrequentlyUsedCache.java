@@ -4,6 +4,7 @@ import bg.sofia.uni.fmi.mjt.cache.storage.Storage;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LeastFrequentlyUsedCache<K, V> extends CacheBase<K, V> {
@@ -23,7 +24,7 @@ public class LeastFrequentlyUsedCache<K, V> extends CacheBase<K, V> {
 
     @Override
     public Collection<V> values() {
-        return this.cache.values();
+        return List.copyOf(this.cache.values());
     }
 
     @Override

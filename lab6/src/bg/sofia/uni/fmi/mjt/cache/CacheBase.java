@@ -54,6 +54,7 @@ public abstract class CacheBase<K, V> implements Cache<K, V> {
 
     protected void resetHitRate() {
         this.successfulHits = 0;
+        this.totalHits = 0;
     }
 
     protected abstract V getFromCache(K k);
