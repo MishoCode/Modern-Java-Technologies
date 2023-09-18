@@ -1,0 +1,4 @@
+[INFO]|2022-01-02T09:53:53.415438500|default.package|ala bala keks
+[INFO]|2022-01-02T09:53:53.415438500|default.package|hahahaha
+[WARN]|2022-01-02T09:53:53.415438500|default.package|hi, what`s up
+[ERROR]|2022-01-02T09:54:33.41543850|default.package|error

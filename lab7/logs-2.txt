@@ -1,0 +1,11 @@
+[INFO]|2022-01-03T18:31:50.504715600|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:45:18.588768600|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:45:18.589734100|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:48:12.315358500|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:48:12.315358500|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:49:07.991802500|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:49:07.992798300|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:49:43.147299600|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:49:43.148296700|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2023-09-18T10:42:11.023069600|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2023-09-18T10:42:11.023309400|bg.sofia.uni.fmi.mjt.logger|ala bala keks

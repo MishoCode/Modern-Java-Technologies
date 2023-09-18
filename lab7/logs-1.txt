@@ -1,0 +1,16 @@
+[INFO]|2022-01-03T18:31:50.503706300|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:45:18.583248600|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:45:18.587740800|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:45:18.588768600|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:48:12.311493600|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:48:12.314557600|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:48:12.314557600|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:49:07.988148|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:49:07.990805|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:49:07.991802500|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:49:43.141359900|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:49:43.146302100|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2022-01-03T18:49:43.146302100|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2023-09-18T10:42:11.014715100|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2023-09-18T10:42:11.021077300|bg.sofia.uni.fmi.mjt.logger|ala bala keks
+[INFO]|2023-09-18T10:42:11.022070700|bg.sofia.uni.fmi.mjt.logger|ala bala keks
